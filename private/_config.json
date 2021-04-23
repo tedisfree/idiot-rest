@@ -1,0 +1,5 @@
+{
+  "basePath": "/idiot/api",
+  "apiDefines": "private/sample/api",
+  "resource": "private/sample/resource"
+}
