@@ -10,10 +10,14 @@ class DownloadHandler extends Handler {
             return;
         }
         let rootPath = path.join(config.resource, 'download');
-        let list = fs.readdirSync(rootPath);
-        let file = list[Math.floor(Math.random()*(list.length))];
+        let file;
+        if(data.file===undefined) {
+            let list = fs.readdirSync(rootPath);
+            file = list[Math.floor(Math.random() * (list.length))];
+        } else {
+            file = data.file[Math.floor(Math.random() * (data.file.length))];
+        }
         file = path.resolve(path.join(rootPath, file));
-
         res.download(file);
     }
 }
