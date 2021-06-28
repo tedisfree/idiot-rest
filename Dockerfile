@@ -6,7 +6,7 @@ ENV LANGUAGE=C.UTF-8
 
 WORKDIR /usr/local
 
-COPY package.json app.js /usr/local/
+COPY package.json app.js start_server.sh /usr/local/
 COPY bin /usr/local/bin
 COPY handlers /usr/local/handlers
 COPY private /usr/local/private
@@ -16,4 +16,6 @@ COPY routes /usr/local/routes
 RUN npm config set strict-ssl false
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 8000
+
+CMD [ "node", "bin/www" ]
